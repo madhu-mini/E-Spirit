@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='home_page_boot11.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='home_page_boot111.css')}}">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>ESPIRITE Doctor's Profile</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="home_page_boot11.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="home_page_boot111.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin:auto;
+  text-align: center;
+  font-family: arial;
+  background-color:#e7f3fe;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #1E88E5;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+button1 {
+ 
+  outline: 0;
+  <!--display: inline-block;-->
+  padding: 8px;
+  color: white;
+  background-color: #0066cc;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+#banner{
+	background: url('../static/7.jpg') no-repeat fixed;
+	background-size: cover;
+	min-height: 650px;
+	position: relative;
+}
+.bg-color{
+	background-color: RGBA(13, 70, 83, 0.78);
+	min-height: 650px;
+}
+
+</style>
+</head>
+<body>
+
+<script>
+function myFunction() {
+    window.print();
+}
+</script>
+
+
+<section id="banner" class="banner">
+ <div class="bg-color">
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+           <!-- <li class="nav-item">
+			<form  class="nav-link" action="/logout"><button type="submit"  value="Logout">Logout</button></form>
+            </li>-->
+			<li class="nav-item">
+              <a class="nav-link active"  type="submit" href={{ url_for("doctor_record_history",email=doctor.d_mailid)}}>Record</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link active"  type="" href="#patinet_log_in">Log in for patient</a>
+            </li>
+			<!--<li class="nav-item">
+			<a class="nav-link active" <button   type="submit" onclick="myFunction()">Print page</button></a></li>
+            <!--<li class="nav-item">
+              <a class="nav-link" href={{ url_for("doctor_record_history",email=doctor.d_mailid)}}>Record</a>
+            </li>-->
+            
+          </ul>
+        </nav>
+        <h3 style="color:white;">ESPIRIT</h3>
+      </div>
+
+<h2 style="text-align:center">Doctor's Profile</h2><br>
+
+<div class="card">
+<div padding: 100px 50px 50px 50px>
+<img src="/static/unknown.png"><br>
+</div>
+  <h2>{{doctor.d_name}}</h2>
+  <p class="title">{{doctor.d_education}}</p>
+
+  <p>Registration No.:{{doctor.d_registerationno}}</p>
+	      <p>Aadhar No.:{{doctor.d_aadharno}}</p>
+
+  <p>Contact No:{{doctor.d_mobileno}}</p>
+      <p class="title">{{doctor.d_mailid}}</p>
+
+      <p>Address:{{doctor.d_address}}</p>
+
+  
+
+ <form action="/logout"><button type="submit"  value="Logout">Logout</button></form>
+ 
+ 
+ 
+</div>
+
+
+
+<div><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+
+    <!--<div id="patinet_log_in" class="jumbotron">-->
+	<div id="patinet_log_in">
+	<h3 style="color:white;" >Log in for a Patient</h3><br>
+	<!--for the patient login within doctor profile-->
+
+	<form  method="POST">
+  	
+	<br>
+	<input style="align:center;" background-color=white; type="email" name="email" placeholder="Email" class="form-control input-md" style="width: 300px" required><br>
+	<br>
+	<input style="align:center;"type="password" name="password" placeholder="Password" class="form-control input-md" required style="width: 300px";>
+	<br>
+	<!--<input type="password" name="password" placeholder="Password" required style="width: 600px"><br>-->
+	<!--User:<br>
+	<select name="user" style="width: 400px">
+	<option value="doctor">Doctor</option>
+	<option value="patient">Patient</option>
+	</select><br><br>--><br><br>
+	<input style="align:center;" class="btn btn-lg btn-success" href="#" type="submit" value="Log in">
+	</form>	
+	</div>
+	
+	<div><br><br><br><br><br><br><br></div>
+</div>
+</div>
+
+</section>
+</body>
+</html>

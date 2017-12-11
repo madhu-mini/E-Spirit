@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	
+	<meta charset="utf-8"/>
+	
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='home_page_boot11.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='home_page_boot111.css')}}">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>ESPIRITE home page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="home_page_boot11.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="home_page_boot111.css" rel="stylesheet">
+	
+	<style>
+	.info {
+    background-color: #e7f3fe;
+    border-left: 6px solid #2196F3;
+	padding:50px 50px 50px 50px;
+}
+#banner{
+	background: url('../static/7.jpg') no-repeat fixed;
+	background-size: cover;
+	min-height: 650px;
+	position: relative;
+}
+.bg-color{
+	background-color: RGBA(13, 70, 83, 0.50);
+	min-height: 650px;
+}
+
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+	align:center;
+	
+}
+
+td {
+    border: 1px solid #;
+    text-align: left;
+    padding: 8px;
+}
+
+tr {
+    background-color:white;
+}
+
+th{
+background-color:#4CAF50;
+color:white;
+padding:8px;
+}
+
+#myInput {
+  background-image: url('/static/searchicon2.jpg');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 80%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  align:center;
+  
+}
+
+#myInput1 {
+  background-image: url('/static/searchicon2.jpg');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 80%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  align:center;
+  
+}
+
+
+	
+
+	
+	</style>
+	
+</head>
+<body>
+
+
+<script>
+function myFunction1() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+<script>
+function myFunction2() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput1");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+
+
+<script>
+function myFunction() {
+    window.print();
+}
+</script>
+
+
+<section id="banner" class="banner">
+
+   <div class="bg-color">
+
+	    <div class="container">
+		
+		
+		<nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href={{ url_for("patient_profile",email=patient.p_mailid)}}>Profile<span class="sr-only">(current)</span></a>
+            </li>
+			
+			<li class="nav-item">
+				<a class="nav-link active" <button   type="submit" onclick="myFunction()">Print page</button></a>
+			</li>
+			
+		</ul>
+		</nav>
+	        <h3 style="color:white;">ESPIRIT</h3><hr>
+			
+			<table>
+	  <td><div><input type="text" id="myInput" onkeyup="myFunction1()" placeholder="Search for date.." title="Type in a name"></div></td>
+	  <td><div><input type="text" id="myInput1" onkeyup="myFunction2()" placeholder="Search for diagnosis.." title="Type in a name"></div></td>
+		</table>
+
+	<h2 style="text-align:center;">{{patient.p_name}}</h2>
+	
+	<!--<ul>
+	{% for report in reports %}
+
+	<h3><u>{{ report.diagnosis}}</u></h3>
+			<div class="info">
+
+	<ul>
+		<li>Date:{{report.date}}</li>
+		<li>Symptoms:{{report.symptoms}}</li>
+
+		<li>Treatment:{{report.treatment}}</li>
+		<li>Doctor:{{report.doctor_name}}</li>
+		<li>Visibility: 
+		<script>
+		var i = {{report.visible}};
+		if (i == 1) {
+     			document.write("Yes");
+		}
+		else{
+			document.write("No");
+		}
+		</script>
+		</li></div>
+		<form action="/patient_change_visibility" method="post">
+  			<input type="hidden" name="reportid" value={{report.r_id}} required readonly><input type="hidden" name="email" value={{patient.p_mailid}} required readonly><br>  	
+			<input type="submit" class="btn btn-lg btn-success" value="Change Visbility">
+		</form>
+	</ul>
+	
+	<hr>
+	{% endfor %}
+	</ul> -->	
+	</div>
+	
+	
+	<div>
+	<table id="myTable" align="center">
+  <tr>
+    <th>Date</th>
+    <th>Symptoms</th>
+    <th>Diagnosis</th>
+	<th>Treatment</th>
+	<th>Visibility</th>
+	<th>Change Visibility</th>
+  </tr>
+  
+  {% for report in reports %}
+  <tr>
+    <td>{{report.date}}</td>
+    <td>{{report.symptoms}}</td>
+    <td>{{report.diagnosis}}</td>
+	<td>{{report.treatment}}</td>
+	<td ><script>
+		var i = {{report.visible}};
+		if (i == 1) {
+     			document.write("Yes");
+		}
+		else{
+			document.write("No");
+		}
+		</script></td>
+		<td><form action="/patient_change_visibility" method="post">
+  			<input type="hidden" name="reportid" value={{report.r_id}} required readonly><input type="hidden" name="email" value={{patient.p_mailid}} required readonly><br>  	
+			<input type="submit" class="btn btn-lg btn-success" value="Change">
+		</form></td>
+		
+		
+	
+  </tr>
+  <hr>
+	{% endfor %}
+</table>	
+	<div>
+<br><br><br><br>
+</div>
+
+	
+	
+</div>	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+</div>
+</section>	
+</body>
+</html>

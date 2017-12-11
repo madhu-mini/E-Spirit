@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="en">
+ 
+  <head>
+    <link rel=stylesheet type=text/css href="{{url_for('static',filename='home_page_boot11.css')}}">
+	<link rel=stylesheet type=text/css href="{{url_for('static',filename='home_page_boot111.css')}}">
+	
+	
+	 <!-- Bootstrap core CSS -->
+    <link href="home_page_boot11.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="home_page_boot111.css" rel="stylesheet">
+	
+	<style>
+	#about
+	{padding-top:50px;
+	height:500px;
+	color: #fff;
+	background-color: #1E88E5;}
+	#contact{padding-top:50px;
+	height:500px;
+	color: #000;
+	background-color:#e5e5e5;
+	}
+	
+	.info {
+    background-color: #e7f3fe;
+    border-left: 6px solid #2196F3;
+	padding:50px 50px 50px 50px;
+}
+
+#banner{
+	background: url('../static/9.jpg') no-repeat fixed;
+	background-size: cover;
+	min-height: 650px;
+	position: relative;
+}
+.bg-color{
+	background-color: RGBA(13, 70, 83, 0.50);
+	min-height: 650px;
+}
+	
+	
+	
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+	align:center;
+	
+}
+
+td,th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr {
+    background-color:white;
+}
+
+th{
+background-color:#4CAF50;
+color:white;
+}
+	
+	
+	
+ </style>
+	
+	
+</head>
+
+
+<body>
+
+<script>
+function myFunction() {
+    window.print();
+}
+</script>
+<section id="banner" class="banner">
+
+   <div class="bg-color">
+
+	
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href={{ url_for("doctor_patient_profile",email=doctor.d_mailid,dpemail=patient.p_mailid)}}>Profile<span class="sr-only">(current)</span></a>
+            </li>
+			<li class="nav-item">
+				<a class="nav-link active" <button   type="submit" onclick="myFunction()">Print page</button></a>
+			</li>
+           	
+
+          </ul>
+        </nav>
+        <h3 style="color:white;">ESPIRIT</h3>
+      </div>
+	  
+	  <!--<div  class="jumbotron">-->
+		<form method="POST" action="/doctor_patient_add_report" class="form-horizontal">
+			<fieldset>
+
+<!-- Form Name -->
+<legend><h3>{{patient.p_name}}</h3></legend>
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="date"><h4>Date</h4></label>  
+
+  <div class="col-md-4">
+  
+  <input id="date" name="date" type="date" placeholder="Enter date" style="width: 600px" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="symptoms"><h4>Symptoms</h4></label>  
+
+  <div class="col-md-4">
+  <textarea id="symptoms" name="symptoms" type="textarea" rows="5" cols="40"  placeholder="Enter Symptoms" style="width: 600px" class="form-control input-md" required=""></textarea>
+    
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="diagnosis"><h4>Diagnosis</h4></label>  
+
+  <div class="col-md-4">
+  <textarea id="diagnosis" name="diagnosis" type="textarea" rows="5" cols="40" placeholder="Enter Diagnosis" style="width: 600px" class="form-control input-md" required=""></textarea>
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="treatment"><h4>Treatement</h4></label>  
+  <div class="col-md-4">
+  <textarea id="treatment" name="treatment" type="textarea" rows="5" cols="40" placeholder="Enter Treatment" style="width: 600px" class="form-control input-md" required=""></textarea>
+    
+  </div>
+</div>
+
+	<div class="form-group">
+  <label class="col-md-4 control-label" for="signup"></label>
+  <div class="col-md-4">
+    <button id="add" name="add" type="submit" value="+Add" align="center" class="btn btn-success">Add</button>
+  </div>
+</div>
+
+</fieldset></div>
+<div>
+<br><br><br>
+</div>
+
+
+<!--<div class="info">
+	
+	<ul>
+		{% for report in reports %}
+		<h4><u>{{ report.diagnosis}}</u></h4>
+		
+
+
+		<ul>
+			<li><h5>Date:{{report.date}}</h5></li>
+			<li><h5>Symptoms:{{report.symptoms}}</h5></li>
+			<li><h5>Treatment:{{report.treatment}}</h5></li>
+			<li><h5>Doctor:{{report.doctor_name}}</h5></li>
+		</ul>
+
+		<hr>
+		{% endfor %}		
+	</ul>
+	</div>-->
+	
+	
+	<div>
+	<table align="center">
+  <tr>
+    <th>Date</th>
+    <th>Symptoms</th>
+    <th>Diagnosis</th>
+	<th>Treatment</th>
+	<th>Doctor's Name</th>
+  </tr>
+  
+  {% for report in reports %}
+  <tr>
+    <td>{{report.date}}</td>
+    <td>{{report.symptoms}}</td>
+    <td>{{report.diagnosis}}</td>
+	<td>{{report.treatment}}</td>
+	<td>{{report.doctor_name}}</td>
+  </tr>
+  <hr>
+	{% endfor %}
+</table>	
+	<div>
+<br><br><br><br>
+</div>
+
+	
+	
+</div>	
+</div>
+</section>	
+</body>
+</html>
+

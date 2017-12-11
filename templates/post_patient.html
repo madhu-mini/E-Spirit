@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="en">
+ 
+  <head>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='home_page_boot11.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='home_page_boot111.css')}}">
+	
+	
+	 <!-- Bootstrap core CSS -->
+    <link href="home_page_boot11.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="home_page_boot111.css" rel="stylesheet">
+	
+	
+<style>
+	
+	
+#banner{
+	background: url('../static/7.jpg') no-repeat fixed;
+	background-size: cover;
+	min-height: 650px;
+	position: relative;
+}
+.bg-color{
+	background-color: RGBA(13, 70, 83, 0.78);
+	min-height: 650px;
+}
+
+	
+	
+	
+</style>
+	
+	
+	
+</head>
+
+
+<body>
+<section id="banner" class="banner">
+ <div class="bg-color">
+
+
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="#registration">Registration <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#about">About <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#contact">Contact <span class="sr-only"></span></a>
+            </li>
+          </ul>
+        </nav>
+        <h3 class="tetx-muted">ESPIRIT</h3>
+      </div>
+	  <!--<div id="registration" class="jumbotron">-->
+
+
+<form method="POST" action="/post_patient" class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend><h4 style="color:white;">Patient Registration</h4></legend>
+
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" style="color:white;" for="name">Name</label>  
+  <div class="col-md-4">
+  <input id="name" name="name" type="text" placeholder="Enter your name" style="width: 600px" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+
+<!-- Number input
+<div class="form-group">
+  <label class="col-md-4 control-label" for="age">Age</label>  
+  <div class="col-md-4">
+  <input id="age" name="age" type="number" placeholder="Enter your age" style="width: 600px" class="form-control input-md" required="">
+    
+  </div>
+</div>-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" style="color:white;" for="birthdate">Birth Date</label>  
+  <div class="col-md-4">
+  <input id="birthdate" name="birthdate" type="date" placeholder="Enter your date of birth" style="width: 600px" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!--<b>BirthDate:</b><br><input id=birthdate type="date" name="birthdate" required><br><br>-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label"  style="color:white;" for="education">Sex</label>  
+  <div>
+    <br>
+		<input type="radio" name="gender"  style="color:white;" value="male" checked>Male
+		<input type="radio" name="gender"  style="color:white;" value="female"> Female
+		<input type="radio" name="gender"  style="color:white;" value="other"> Other
+		
+  </div>
+</div>
+
+
+
+<!-- Number input-->
+<div class="form-group">
+  <label class="col-md-4 control-label"  style="color:white;" for="age">Weight</label>  
+  <div class="col-md-4">
+  <input id="weight" name="weight" type="text" placeholder="Enter your weight" style="width: 600px" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!--text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label"  style="color:white;" for="bloodgroup">Blood Group</label>
+  <div class="col-md-4">
+    <select id="bloodgroup" name="bloodgroup" style="width: 600px" class="form-control">
+      <option value="NA">Select</option>
+      <option value="A+">A+</option>
+      <option value="B+">B+</option>
+      <option value="AB+">AB+</option>
+      <option value="O+">O+</option>
+      <option value="A-">A-</option>
+      <option value="B-">B-</option>
+      <option value="AB-">AB-</option>
+      <option value="O-">O-</option>
+    </select>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label"  style="color:white;" for="aadhar">Aadhar No.</label>  
+  <div class="col-md-4">
+  <input id="aadharno" name="aadharno" type="number" placeholder="Enter your aadhar no." style="width: 600px" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+
+<!-- Text input
+<div class="form-group">
+  <label class="col-md-4 control-label" for="registrationno">Registration No.</label>  
+  <div class="col-md-4">
+  <input id="street" name="street" type="text" placeholder="Enter your registration number" class="form-control input-md" required="">
+    
+  </div>
+</div>-->
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" style="color:white;" for="contact">Contact no.</label>  
+  <div class="col-md-4">
+  <input id="mobileno" name="mobileno" type="number" placeholder="Enter your contact no." style="width: 600px" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" style="color:white;" for="email">Email</label>  
+  <div class="col-md-4">
+  <input id="email" name="email" type="email" placeholder="Enter your email id" style="width: 600px" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" style="color:white;" for="password">Password</label>
+  <div class="col-md-4">
+    <input id="password" name="password" type="password" placeholder="Enter a password" style="width: 600px" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- Select Basic 
+<div class="form-group">
+  <label class="col-md-4 control-label" for="blood_group">Blood Group</label>
+  <div class="col-md-4">
+    <select id="blood_group" name="blood_group" class="form-control">
+      <option value="-1">Select</option>
+      <option value="1">A+</option>
+      <option value="2">B+</option>
+      <option value="3">AB+</option>
+      <option value="4">O+</option>
+      <option value="5">A-</option>
+      <option value="6">B-</option>
+      <option value="7">AB-</option>
+      <option value="8">O-</option>
+    </select>
+  </div>
+</div>-->
+
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" style="color:white;" for="address">Address</label>  
+  <div class="col-md-4">
+  <input id="address" name="address" type="text" placeholder="Enter your address"style="width: 600px"  class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input
+<div class="form-group">
+  <label class="col-md-4 control-label" for="city">City</label>  
+  <div class="col-md-4">
+  <input id="city" name="city" type="text" placeholder="Enter your city" class="form-control input-md" required="">
+    
+  </div>
+</div>-->
+
+<!-- Text input-->
+
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label"  for="signup"></label>
+  <div class="col-md-4">
+    <button id="signup" name="signup" class="btn btn-lg btn-success">Sign Up</button>
+  </div>
+</div>
+</fieldset>
+</form></div>
+
+</div></section>
+
+<div id="about" class="container-fluid">
+		<div>
+			<h4>About Developers</h4>
+			<h5>Madhusudan Miniyar</h5>
+			<h5>Padmaja Dhonddev</h5>
+			<h5>Audumbar Badgire</h5>
+			
+		</div>
+		
+		
+	  
+	  
+	  
+	  </div>
+	  
+	  <div>
+	  <br><br>
+	  <br><br></div>
+	  
+	  <div id="contact" class="container-fluid">
+	  
+		<div>
+			<h5>Madhusudan Miniyar<br>9423367106</h5><br>
+			<h5>Padmaja Dhonddev<br>9405781097</h5>
+		
+		</div>
+		
+		
+	  </div>
+</body>
+</html>

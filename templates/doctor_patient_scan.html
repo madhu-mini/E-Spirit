@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	
+	<meta charset="utf-8"/>
+	
+	
+	<meta charset="utf-8"/>
+	
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='home_page_boot11.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='home_page_boot111.css')}}">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>ESPIRITE Patient Scan</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="home_page_boot11.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="home_page_boot111.css" rel="stylesheet">
+	
+	<style>
+	.info {
+    background-color: #e7f3fe;
+    border-left: 6px solid #2196F3;
+	padding:50px 50px 50px 50px;
+}
+#banner{
+	background: url('../static/9.jpg') no-repeat fixed;
+	background-size: cover;
+	min-height: 650px;
+	position: relative;
+}
+.bg-color{
+	background-color: RGBA(13, 70, 83, 0.50);
+	min-height: 650px;
+}
+
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+	align:center;
+	
+}
+
+td {
+    border: 1px solid #;
+    text-align: left;
+    padding: 8px;
+}
+
+tr {
+    background-color:white;
+}
+tr:nth-child(odd){
+background-color:#D1D5F8;
+}
+
+th{
+background-color:#4B5DF7;
+color:white;
+padding:8px;
+}
+	
+
+
+	
+	</style>
+	
+	
+<script>
+    $("#file-picker").change(function(){
+        var input = document.getElementById('file-picker');
+        for (var i=0; i<input.files.length; i++)
+        {
+        //koala.jpg, koala.JPG substring(index) lastIndexOf('a') koala.1.jpg
+            var ext= input.files[i].name.substring(input.files[i].name.lastIndexOf('.')+1).toLowerCase()
+            if ((ext == 'jpg') || (ext == 'png')||(ext == 'jpeg')||(ext == 'gif'))
+            {
+                $("#msg").text("Files are supported")
+            }
+            else
+            {
+                $("#msg").text("Files are NOT supported")
+                document.getElementById("file-picker").value ="";
+            }
+        }
+    } );
+</script>
+<script>
+function myFunction() {
+    window.print();
+}
+</script>
+
+</head>
+<body>
+
+<section id="banner" class="banner">
+
+   <div class="bg-color">
+
+	    <div class="container">
+		
+		
+		<div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href={{ url_for("doctor_patient_profile",email=doctor.d_mailid,dpemail=patient.p_mailid)}}>Profile<span class="sr-only">(current)</span></a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link active"  type="" href="#scan_report">View Scans</a>
+            </li>
+			<li class="nav-item">
+				<a class="nav-link active" <button   type="submit" onclick="myFunction()">Print page</button></a>
+			</li>
+			
+           	
+
+          </ul>
+        </nav>
+        <h3 style="color:white;">ESPIRIT</h3>
+      </div>
+	 
+	  
+
+
+	<h1 style="text-align:center;">{{patient.p_name}}</h1><hr>
+	
+	<!--
+	<form action="/doctor_patient_add_scan" method="post" enctype="multipart/form-data">
+  	 Scans:<br>
+	 	<div class="form-group">
+
+	 Date:<input type="date" name="date" required><br></div>
+	 
+	 
+	 Descritpion:<br><textarea rows="4" cols="50" name="description" required></textarea><br>
+	 Files:<input id="file-picker" type="file" name="file" accept="image/*" required>
+	 <input type="submit" value="+Add">
+	</form>	 -->
+	
+		<form action="/doctor_patient_add_scan" method="post" enctype="multipart/form-data">
+
+	
+	<div class="form-group">
+  <label class="col-md-4 control-label" for="date"><h4>Date</h4></label>  
+
+  <div class="col-md-4">
+  
+  <input id="date" name="date" type="date" placeholder="Enter date" style="width: 600px" class="form-control input-md" required="">
+    
+  </div>
+  
+  
+  <div class="form-group">
+  <label class="col-md-4 control-label" for="description"><h4>Descritpion</h4></label>  
+
+  <div class="col-md-4">
+  <textarea id="description" name="description" type="textarea" rows="5" cols="40"  placeholder="Enter Descritpion" style="width: 600px" class="form-control input-md" required=""></textarea>
+    
+  </div>
+  </div>
+  
+  <div class="form-group">
+  <label class="col-md-4 control-label" style="color:white;" for="file"><h4>File</h4></label> <br> 
+  
+ <input id="file-picker" type="file" name="file" class="btn btn-lg btn-success" accept="image/*" required>
+	 <input type="submit" style="align:center;" class="btn btn-lg btn-success" value="+Add">
+	 </div>
+	</form>
+
+
+	</div>
+
+	</div>
+<div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+</div>
+  
+  	<div id="scan_report">
+	<table align="center">
+	
+	<col width="300px" >
+	<col width="300px" >
+	<col width="300px" >
+
+
+  <tr>
+	<th>Description</th>
+    <th>Date</th>
+    <th>Document</th>
+  </tr>
+  
+  {% for scan in scans %}
+  <tr>
+    <td>{{scan.description}}</td>
+    <td>{{scan.s_date}}</td>
+    <td><a href="{{url_for('send_image', filename=scan.paths)}}" target="_blank">Report</a></td>
+	
+  </tr>
+  <hr>
+	{% endfor %}
+</table>
+
+<br><br><br><br><br><br>	<br><br><br><br><br><br>
+</div>
+	<div>
+
+	<!--<hr>
+
+	<ul>
+	{% for scan in scans %}
+	<h3><u style="color:white;">{{ scan.description}}</u></h3>
+	<ul>
+		<li>Date:{{scan.s_date}}</li>
+		<li>Document:<a href="{{url_for('send_image', filename=scan.paths)}}" target="_blank">Report</a></li>
+		<hr>		
+	</ul>
+	<hr>
+	{% endfor %}
+	</ul> -->
+
+
+
+	
+
+</div>
+
+</section>	
+
+</body>
+</html>

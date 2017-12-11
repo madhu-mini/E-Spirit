@@ -1,0 +1,465 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='home_page_boot11.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='home_page_boot111.css')}}">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>ESPIRIT Home page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="home_page_boot11.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="home_page_boot111.css" rel="stylesheet">
+	<style>
+
+
+
+
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 12px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 50%;
+    border-radius: 60%;
+}
+
+.container1 {
+    padding: 16px;
+    background-color: rgba(30,144,255, 0.8)
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;/* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+	#about
+	{padding-top:50px;
+	height:500px;
+	color: #fff;
+	background-color: #1E88E5;}
+	#contact
+	{padding-top:50px;
+	height:500px;
+	color: #000;
+	background-color:#e5e5e5;
+	}
+	#banner{
+	background: url('../static/bg-banner.jpg') no-repeat fixed;
+	background-size: cover;
+	min-height: 650px;
+	position: relative;
+}
+.bg-color{
+	background-color: RGBA(13, 70, 83, 0.78);
+	min-height: 650px;
+}
+
+
+
+#myDIV {
+    width: 300px;
+    height: 200px;
+    background: red;
+    -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
+    animation: mymove 5s infinite;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+    from {background-color: red;}
+    to {background-color: blue;}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+    from {background-color: red;}
+    to {background-color: blue;}
+}
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+
+
+
+
+ </style>
+	
+	
+  </head>
+
+  <body>
+  
+  <section id="banner" class="banner">
+   <div class="bg-color">
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home" >Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about" style="color:white;" <span class="sr-only">About</a>
+            </li>
+            <!--<li class="nav-item">
+              <a class="nav-link" href="#contact" style="color:white;" <span class="sr-only">Contact</a>
+            </li>-->
+          </ul>
+        </nav>
+        <h3 style="color:white;">ESPIRIT</h3>
+      </div>
+
+      <!--<div id="home" class="jumbotron">-->
+        <h1 class="display-3" align="center">ESPIRIT</h1>
+		<form  method="POST" align="center">
+  	<br>
+	<input style="align:center;" type="email" name="email" placeholder="Email" class="form-control input-md" style="width: 300px" required><br>
+	<br>
+	<input style="align:center;"type="password" name="password" placeholder="Password" class="form-control input-md" required style="width: 300px";><br>
+	<h6 style="color:white; align:center;" >User</h6>
+	<select name="user" class="form-control input-md" style="align:center;">
+	<option value="doctor">Doctor</option>
+	<option value="patient">Patient</option>
+	</select><br><br>
+	<input class="btn btn-lg btn-success" align="center" href="#" type="submit" value="Log in">
+	<div><br></div>
+	</form>	
+        <p class="lead" align="center" style="color:white;" >We make a living by what we get, but we make a life by what we give...<br></p>
+        <!--<p><a class="btn btn-lg btn-success" href="#" role="button">Login</a></p>-->
+      </div>
+	  <div align="center">
+	  <a class="btn btn-lg btn-success" href="{{ url_for('post_doctor') }}">Sign up for Doctor</a>
+		<a class="btn btn-lg btn-success" href="{{ url_for('post_patient') }}">Sign up for Patient</a><br><br><br>
+		</div>
+      </div>
+	 </section>
+
+
+
+
+
+
+
+		<div id="about" class="container-fluid">
+      <h4>About Developers</h4>
+	  
+	  <table align="center">
+		<td>
+	
+	<div>
+	
+	
+
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Madhusudan Miniyar</button>
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+
+    <div class="imgcontainer">
+     <!-- <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>-->
+      <img src="/static/madhya.jpg" alt="Avatar" class="avatar">
+	  
+    </div>
+  <div class="container1">
+ <h2 style="text-align:center">Madhusudan Miniyar</h2>
+<!--<h2 style="text-align:center">Study at wce,sangli</h2>
+        <p style="text-align:center" class="title">Shivaji University</p>-->
+        <p style="text-align:center">Contact<br>Mob.No.9423367106<br>Email:madhuminiyar@gmail.com</p>
+
+ </div>
+    <div class="container1" style="text-align:center"style="background-color:#f1f1f1">
+      <button  type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Back</button>
+    <!--  <span class="psw">Forgot <a href="#">password?</a></span>-->
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+</div></td>
+	<td>		
+<div>
+
+<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Padmaja Dhonddev</button>
+
+<div id="id02" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+
+    <div class="imgcontainer">
+     <!-- <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>-->
+      <img src="/static/pd1.jpg" alt="Avatar" class="avatar">
+	  
+    </div>
+  <div class="container1">
+ <h2 style="text-align:center">Padmaja Dhonddev</h2>
+<!--<h2 style="text-align:center">Study at wce,sangli</h2>
+        <p style="text-align:center" >Shivaji University</p>-->
+        <p style="text-align:center">Contact<br>Mob.No.9405781097<br>Email:padmajadhonddev16@gmail.com</p>
+
+ </div>
+    <div class="container1" style="text-align:center"style="background-color:#f1f1f1">
+      <button  type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Back</button>
+    <!--  <span class="psw">Forgot <a href="#">password?</a></span>-->
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id02');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+</div></td>
+	
+<td>
+<div>
+
+<button onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Audumbar Badgire</button>
+
+<div id="id03" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+
+    <div class="imgcontainer">
+     <!-- <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>-->
+      <img src="/static/ab3.jpg" alt="Avatar" class="avatar">
+	  
+    </div>
+  <div class="container1">
+ <h2 style="text-align:center">Audumbar Badgire</h2>
+<!--<h2 style="text-align:center">Study at wce,sangli</h2>
+        <p style="text-align:center" >Shivaji University</p>-->
+        <p style="text-align:center">Contact<br>Mob.No.953391044<br>Email:audumbarbadgire01@mail.com</p>
+
+ </div>
+    <div class="container1" style="text-align:center"style="background-color:#f1f1f1">
+      <button  type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Back</button>
+    <!--  <span class="psw">Forgot <a href="#">password?</a></span>-->
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id03');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+</div></td>
+		
+
+	
+</div>
+	
+	
+	  
+	  <!--<div id="contact" class="container-fluid">
+	  
+		<div>
+			<h5>Madhusudan Miniyar<br>9423367106</h5><br>
+			<h5>Padmaja Dhonddev<br>9405781097</h5><br>
+			<h5>Audumbar Badgire<br>9503391044</h5>
+		
+		</div>
+		
+		
+	  </div>
+	  
+	  
+	 
+		
+      <footer class="footer">
+        <p>&copy; Espirit Company 2017</p>
+      </footer>
+
+    </div>--> <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
+  </body>
+</html>

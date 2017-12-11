@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="en">
+ 
+  <head>
+    <link rel=stylesheet type=text/css href="{{url_for('static',filename='home_page_boot11.css')}}">
+	<link rel=stylesheet type=text/css href="{{url_for('static',filename='home_page_boot111.css')}}">
+	
+	
+	 <!-- Bootstrap core CSS -->
+    <link href="home_page_boot11.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="home_page_boot111.css" rel="stylesheet">
+	
+	<style>
+	#about
+	{padding-top:50px;
+	height:500px;
+	color: #fff;
+	background-color: #1E88E5;}
+	#contact{padding-top:50px;
+	height:500px;
+	color: #000;
+	background-color:#e5e5e5;
+	}
+	
+	.info {
+    background-color: #e7f3fe;
+    border-left: 6px solid #2196F3;
+	padding:50px 50px 50px 50px;
+}
+
+#banner{
+	background: url('../static/9.jpg') no-repeat fixed;
+	background-size: cover;
+	min-height: 650px;
+	position: relative;
+}
+.bg-color{
+	background-color: RGBA(13, 70, 83, 0.50);
+	min-height: 650px;
+}
+	
+	
+	
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+	align:center;
+	
+}
+
+
+td,th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr {
+    background-color:white;
+}
+
+th{
+background-color:#4CAF50;
+color:white;
+}
+
+th1{
+background-color:#4CAF50;
+color:white;
+}
+	
+#myInput {
+  background-image: url('/static/searchicon2.jpg');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 80%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  align:center;
+  
+}
+#myInput1 {
+  background-image: url('/static/searchicon2.jpg');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 80%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  align:center;
+  
+}
+
+<style>
+* {
+  box-sizing: border-box;
+}	
+	
+ </style>
+	
+	
+</head>
+
+
+<body>
+
+
+
+<script>
+function myFunction1() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+<script>
+function myFunction2() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput1");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[3];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+
+
+
+
+
+
+<script>
+function myFunction() {
+    window.print();
+}
+</script>
+<section id="banner" class="banner">
+
+   <div class="bg-color">
+<div class="container">
+
+
+	
+	<div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href={{ url_for("doctor_profile",email=doctor.d_mailid,dpemail=doctor.d_mailid)}}>Profile<span class="sr-only">(current)</span></a>
+            </li>
+			<li class="nav-item">
+				<a class="nav-link active" <button   type="submit" onclick="myFunction()">Print page</button></a>
+			</li>
+           	
+
+          </ul>
+        </nav>
+        <h3 style="color:white;">ESPIRIT</h3>
+      </div>
+	  <table>
+	  <td><div><input type="text" id="myInput" onkeyup="myFunction1()" placeholder="Search for names.." title="Type in a name"></div></td>
+	  <td><div><input type="text" id="myInput1" onkeyup="myFunction2()" placeholder="Search for diagnosis.." title="Type in a name"></div></td>
+		</table>
+</div>
+
+
+<!--<div class="info">
+	
+	<ul>
+		{% for report in reports %}
+		<h4><u>{{ report.diagnosis}}</u></h4>
+		
+
+
+		<ul>
+			<li><h5>Date:{{report.date}}</h5></li>
+			<li><h5>Symptoms:{{report.symptoms}}</h5></li>
+			<li><h5>Treatment:{{report.treatment}}</h5></li>
+			<li><h5>Doctor:{{report.doctor_name}}</h5></li>
+		</ul>
+
+		<hr>
+		{% endfor %}		
+	</ul>
+	</div>-->
+	
+	
+	<div>
+	<table id="myTable" align="center">
+	<col width="200">
+	<col width="150">
+	<col width="400">
+	<col width="200">
+	
+  <tr>
+	<th>Patient's name</th>
+    <th>Date</th>
+    <th>Symptoms</th>
+    <th>Diagnosis</th>
+	<th>Treatment</th>
+
+  </tr>
+  
+  {% for report in reports %}
+  <tr>
+	<td>{{report.patient_name}}</td>
+    <td>{{report.date}}</td>
+    <td>{{report.symptoms}}</td>
+    <td>{{report.diagnosis}}</td>
+	<td>{{report.treatment}}</td>
+  </tr>
+  <hr>
+	{% endfor %}
+</table>	
+	<div>
+<br><br><br><br>
+</div>
+
+	
+	
+</div>	
+</div>
+</section>	
+</body>
+</html>
+

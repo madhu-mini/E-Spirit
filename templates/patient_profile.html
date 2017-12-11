@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='home_page_boot11.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='home_page_boot111.css')}}">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>ESPIRITE Patient's Profile</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="home_page_boot11.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="home_page_boot111.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  background-color:#e7f3fe;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #1E88E5;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+button1 {
+ 
+  outline: 0;
+  <!--display: inline-block;-->
+  padding: 8px;
+  color: white;
+  background-color: #0066cc;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+#banner{
+	background: url('../static/9.jpg') no-repeat fixed;
+	background-size: cover;
+	min-height: 650px;
+	position: relative;
+}
+.bg-color{
+	background-color: RGBA(13, 70, 83, 0.50);
+	min-height: 650px;
+}
+
+</style>
+</head>
+<body>
+	<section id="banner" class="banner">
+
+   <div class="bg-color">
+
+
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <!--<li class="nav-item">
+				<a  class="nav-link active" action="/logout"><button type="submit"  value="Logout">Logout</button></a>
+            </li>-->
+            <li class="nav-item">
+              <a class="nav-link active"  type="sbmit" href={{ url_for("patient_profile_allergy",email=patient.p_mailid)}}>Allergies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href={{ url_for("patient_profile_report",email=patient.p_mailid)}}>Reports</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link active" href={{ url_for("patient_profile_scan",email=patient.p_mailid)}}>Scans</a>
+            </li>
+          </ul>
+        </nav>
+        <h3 style="color:white;">ESPIRIT</h3>
+      </div>
+
+<h2 style="text-align:center">Patient's Profile</h2><br>
+
+<div class="card">
+<div padding: 100px 50px 50px 50px>
+<img src="/static/unknown.png"><br>
+</div>
+  <h1>{{patient.p_name}}</h1>
+  <p class="title">{{patient.p_address}}</p>
+    <p class="title"><a href="url">{{patient.p_mailid}}</a></p>
+
+  <p>Age:{{patient.p_birthdate}}</p>
+    <p>Sex:{{patient.p_sex}}</p>
+  <p>Weight:{{patient.p_weight}}</p>
+  <p>Blood Group:{{patient.p_bloodgroup}}</p>
+  <p>Aadhar No:{{patient.p_aadharno}}</p>
+
+  <p>Contact No:{{patient.p_mobileno}}</p>
+  
+	<!--<div>
+ <a href={{ url_for("patient_profile_allergy",email=patient.p_mailid)}}>Allergies</a>
+	<a href={{ url_for("patient_profile_report",email=patient.p_mailid)}}>Reports</a><br><br>
+	
+	</div>-->
+ <form action="/logout"><button type="submit"  value="Logout">Logout</button></form>
+</div>
+</div>
+</section>
+</div>
+</body>
+</html>
