@@ -1,5 +1,5 @@
 # E-Spirit
-It is the Web portal will provide interface, in which doctor can enter patients’ diagnosis which will include the prescriptions, medical test reports including images (e.g.X -ray,Sonography Reports,Blood Reports).
+It is the Web portal will provide interface, in which doctor can enter patients’ diagnosis which will include the prescriptions, medical test reports including images (e.g.X -ray, Sonography Reports, Blood Reports).
 ## **Home Page**
 <p align="center">
  <img src="screenshots/Home_Page.png"/> 
